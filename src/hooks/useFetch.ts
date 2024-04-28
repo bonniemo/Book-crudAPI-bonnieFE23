@@ -6,7 +6,7 @@ type ApiResponse<T> = {
     error: string | null;
 }
 
-export const UseFetch = <T>(url:string): ApiResponse<T> => {
+export const useFetch = <T>(url:string): ApiResponse<T> => {
   const [data, setData] = useState<T | null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
