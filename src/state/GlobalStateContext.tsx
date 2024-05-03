@@ -3,6 +3,7 @@ import { Action, FavouriteState } from "../types/Types";
 
 export const InitialFavouriteState: FavouriteState = {
     favourites: [],
+    // readbooks: [],
 };
 
 export const GlobalContext = createContext<{
