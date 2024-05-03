@@ -1,3 +1,15 @@
+export type Book = {
+    title: string;
+    first_publish_year: number;
+    author_name: string[];
+    cover_i: string;
+  };
+
+  export type DisplayBookProps = {
+    data: {
+        docs: Book[];
+    }
+  }
 
 export type Favourite = {
     id: string;

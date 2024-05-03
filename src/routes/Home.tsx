@@ -1,6 +1,7 @@
 import { useState } from "react";
 import FetchData from "../components/FetchData";
 import { useFormInput } from "../hooks/useFormInput";
+import DisplayBooks from "../components/DisplayBooks";
 
 const Home = () => {
   const baseUrl = "https://openlibrary.org/search.json?title=";  
@@ -23,7 +24,7 @@ const Home = () => {
         <input type="text" {...searchInput} />
         <button onClick={handleClick}>Search</button>
       </>
-      <FetchData url={searchUrl} />
+      <FetchData componentProp={DisplayBooks} url={searchUrl} />
     </div>
   );
 };

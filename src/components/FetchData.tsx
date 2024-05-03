@@ -1,14 +1,12 @@
+
 import { useFetch } from "../hooks/useFetch";
 
-type Book = {
-  title: string;
-  first_publish_year: number;
-  author_name: string[];
-  cover_i: string;
+type Data<T> = {
+  docs: T[];
 };
 
-const FetchData = ({ url }: { url: string }) => {
-  const { data, loading, error } = useFetch<{ docs: Book[] }>(url);
+const FetchData = <T,>({ url, componentProp: Component }: { url: string, componentProp: React.ComponentType<{ data: Data<T> }> }) => {
+  const { data, loading, error } = useFetch<Data<T>>(url);
 
   if (loading) {
     <p>Loading...</p>;
@@ -17,23 +15,10 @@ const FetchData = ({ url }: { url: string }) => {
 
   return (
     <>
-      {data && (
-        <>
-          {data.docs.map((book: Book) => (
-            <>
-              <img
-                src={`https://covers.openlibrary.org/b/id/${book.cover_i}-M.jpg`}
-                alt=""
-              />
-              <p>{book.title}</p>
-              <p>{book.author_name}</p>
-              <p>{book.first_publish_year}</p>
-            </>
-          ))}
-        </>
-      )}
+      {data && 
+        <Component data={data}/>
+      }
     </>
   );
 };
-
 export default FetchData;
