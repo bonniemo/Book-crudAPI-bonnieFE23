@@ -1,31 +1,24 @@
-import { useState } from "react";
+import DisplayBooks from "../components/DisplayBooks";
 import FetchData from "../components/FetchData";
 import { useFormInput } from "../hooks/useFormInput";
-import DisplayBooks from "../components/DisplayBooks";
+import { useSearch } from "../hooks/useSearch";
 
 const Home = () => {
-  const baseUrl = "https://openlibrary.org/search.json?title=";  
+  const baseUrl = "https://openlibrary.org/search.json?title=";
+  // https://openlibrary.org/search/authors.json?q=j%20k%20rowling
 
-  const [searchUrl, setSearchUrl] = useState("");
   const searchInput = useFormInput("");
-
-  const handleClick = () => {
-    const formatedInput = searchInput.value.replace(/ /g, "+");
-    const searchUrl = `${baseUrl}${formatedInput}&limit=5&offset=3`;
-    setSearchUrl(searchUrl);
-  };
-  console.log(searchUrl);
+  const { handleClick, searchUrl } = useSearch(baseUrl, searchInput.value);
 
   return (
-    <div className="h-screen bg-pink-300 p-1.5">
-      <h1 className="">Hello BookWorld</h1>
+    <article className="bg-pink-300 p-1.5">
       <>
         <label htmlFor="search">Search</label>
         <input type="text" {...searchInput} />
         <button onClick={handleClick}>Search</button>
       </>
       <FetchData componentProp={DisplayBooks} url={searchUrl} />
-    </div>
+    </article>
   );
 };
 
