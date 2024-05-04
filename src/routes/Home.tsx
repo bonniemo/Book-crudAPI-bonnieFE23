@@ -10,12 +10,14 @@ const Home = () => {
   const searchInput = useFormInput("");
   const { handleClick, searchUrl } = useSearch(baseUrl, searchInput.value);
 
+  const placeholder = "Title";
+
   return (
     <article className="bg-pink-300 p-1.5">
       <>
-        <label htmlFor="search">Search</label>
-        <input type="text" {...searchInput} />
-        <button onClick={handleClick}>Search</button>
+        <label className="mx-1.5" htmlFor="search">Search for a title</label>
+        <input className="px-1.5 mx-1.5" type="text" placeholder={placeholder} {...searchInput} />
+        <button className=" px-1 border border-black" onClick={handleClick}>Search</button>
       </>
       <FetchData componentProp={DisplayBooks} url={searchUrl} />
     </article>
