@@ -6,6 +6,10 @@ import Nav from "./routes/Nav";
 import NotFound from "./routes/NotFound";
 import Home from "./routes/Home";
 import GlobalContextProvider from "./components/GlobalContextProvider";
+import BookCorner from "./routes/BookCorner/BookCorner";
+import FavouriteBooks from "./routes/BookCorner/FavouriteBooks";
+import FavouriteAuthors from "./routes/BookCorner/FavouriteAuthors";
+import ReadBooks from "./routes/BookCorner/ReadBooks";
 
 const router = createBrowserRouter([
   {
@@ -16,6 +20,15 @@ const router = createBrowserRouter([
       {
         path: "/",
         element: <Home />,
+      },
+      {
+        path: "/BookCorner",
+        element: <BookCorner />,
+        children: [
+          { path: "/BookCorner/FavouriteBooks", element: <FavouriteBooks /> },
+          { path: "/BookCorner/FavouriteAuthors", element: <FavouriteAuthors /> },
+          { path: "/BookCorner/ReadBooks", element: <ReadBooks /> }
+        ],
       },
     ],
   },
