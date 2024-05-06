@@ -1,9 +1,9 @@
-import DisplayAuthor from "../components/DisplayAuthor";
-import DisplayBooks from "../components/DisplayBooks";
-import FetchData from "../components/FetchData";
-import { useFormInput } from "../hooks/useFormInput";
-import { useSearch } from "../hooks/useSearch";
-import { useToggle } from "../hooks/useToggle";
+import DisplayAuthor from "./DisplayAuthor";
+import DisplayBooks from "./DisplayBooks";
+import FetchData from "../../components/FetchData";
+import { useFormInput } from "../../hooks/useFormInput";
+import { useSearch } from "../../hooks/useSearch";
+import { useToggle } from "../../hooks/useToggle";
 
 const Home = () => {
   const { toggle, toggleState } = useToggle();
@@ -37,7 +37,10 @@ const Home = () => {
           Search
         </button>
       </>
-      <FetchData componentProp={toggle ? DisplayBooks : DisplayAuthor} url={searchUrl} />
+      <FetchData
+        componentProp={toggle ? DisplayBooks : DisplayAuthor}
+        url={searchUrl}
+      />
     </article>
   );
 };

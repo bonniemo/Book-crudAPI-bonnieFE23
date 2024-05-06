@@ -4,7 +4,7 @@ import "./index.css";
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import Nav from "./routes/Nav";
 import NotFound from "./routes/NotFound";
-import Home from "./routes/Home";
+import Home from "./routes/Home/Home";
 import GlobalContextProvider from "./components/GlobalContextProvider";
 import BookCorner from "./routes/BookCorner/BookCorner";
 import FavouriteBooks from "./routes/BookCorner/FavouriteBooks";
@@ -26,8 +26,11 @@ const router = createBrowserRouter([
         element: <BookCorner />,
         children: [
           { path: "/BookCorner/FavouriteBooks", element: <FavouriteBooks /> },
-          { path: "/BookCorner/FavouriteAuthors", element: <FavouriteAuthors /> },
-          { path: "/BookCorner/ReadBooks", element: <ReadBooks /> }
+          {
+            path: "/BookCorner/FavouriteAuthors",
+            element: <FavouriteAuthors />,
+          },
+          { path: "/BookCorner/ReadBooks", element: <ReadBooks /> },
         ],
       },
     ],
