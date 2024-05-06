@@ -32,9 +32,13 @@ export type InitialStateTypes = {
   favouriteAuthors: Author[];
 };
 
-export type GlobalContextProviderProp = {
+export type ChildrenProp = {
   children: React.ReactNode;
 };
+
+export type DisplayDataCards = ChildrenProp & {
+  dataKey: string;
+}
 
 export type Action =
   | { type: "ADDFAVBOOK"; payload: Book }

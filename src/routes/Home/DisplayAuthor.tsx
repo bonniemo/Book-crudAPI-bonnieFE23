@@ -1,6 +1,7 @@
 import { useContext } from "react";
 import { GlobalContext } from "../../state/GlobalStateContext";
 import { DisplayAuthorProps } from "../../types/Types";
+import DisplayDataCard from "../../components/DisplayDataCard";
 
 const DisplayAuthor: React.FC<DisplayAuthorProps> = ({ data }) => {
   const docs = data.docs;
@@ -27,7 +28,8 @@ const DisplayAuthor: React.FC<DisplayAuthorProps> = ({ data }) => {
   return (
     <>
       {docs.map((author) => (
-        <article key={author.key}>
+    <DisplayDataCard key={author.key}>
+        
           <p>{author.name}</p>
           <p>Born: {author.birth_date}</p>
           <p>Top work: {author.top_work}</p>
@@ -49,8 +51,8 @@ const DisplayAuthor: React.FC<DisplayAuthorProps> = ({ data }) => {
             }
           >
             Add Fav
-          </button>
-        </article>
+          </button>        
+    </DisplayDataCard>
       ))}
     </>
   );
