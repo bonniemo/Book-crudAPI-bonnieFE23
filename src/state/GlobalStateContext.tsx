@@ -1,15 +1,16 @@
 import { createContext } from "react";
-import { Action, FavouriteState } from "../types/Types";
+import { Action, InitialStateTypes,  } from "../types/Types";
 
-export const InitialFavouriteState: FavouriteState = {
-    favourites: [],
-    // readbooks: [],
+export const InitialState: InitialStateTypes = {
+    favouriteBooks: [],
+    readBooks: [],
+    favouriteAuthors: [],
 };
 
 export const GlobalContext = createContext<{
-    state: FavouriteState;
+    state: InitialStateTypes;
     dispatch: React.Dispatch<Action>;
 }>({
-    state: InitialFavouriteState,
+    state: InitialState,
     dispatch: () => null,
 });
