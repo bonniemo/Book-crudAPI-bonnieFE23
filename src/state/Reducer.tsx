@@ -1,14 +1,16 @@
-import { Action, FavouriteState } from "../types/Types";
 
-export const reducer = (state: FavouriteState, action: Action) => {
+import { Action, InitialStateTypes, } from "../types/Types";
+
+export const reducer = (state: InitialStateTypes, action: Action) => {
     switch (action.type) {
-        case "ADD":
+        case "ADDFAVBOOK":            
             return {
-                ...state, favourites: [...state.favourites, action.payload]
+                ...state, favouriteBooks: [...state.favouriteBooks, action.payload]
             }
-        case "REMOVE": 
+        case "REMOVEFAVBOOK": 
             return {
-                favourites: state.favourites.filter((fav) => fav.id !== action.payload)
+                // favourites: state.favouriteBooks.filter((fav) => fav.id !== action.payload)
+                state
             }
         default:
             return state;

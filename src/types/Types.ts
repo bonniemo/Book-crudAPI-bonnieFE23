@@ -22,5 +22,5 @@ export type GlobalContextProviderProp = {
 };
 
 export type Action =
-  | { type: "ADD"; payload: string }
-  | { type: "REMOVE"; payload: string };
+  | { type: "ADDFAVBOOK"; payload: Book }
+  | { type: "REMOVEFAVBOOK"; payload: string };

@@ -6,7 +6,7 @@ import { GlobalContextProviderProp } from "../types/Types"
 
 
 const GlobalContextProvider = ({ children }: GlobalContextProviderProp) => {
-    const [state, dispatch] = useReducer(reducer, InitialState);
+    const [state, dispatch] = useReducer(reducer, InitialState)
   return (
     <>
         <GlobalContext.Provider value={{ state, dispatch }}>
