@@ -3,12 +3,11 @@ import { GlobalContext } from "../../state/GlobalStateContext";
 
 const FavouriteBooks = () => {
   const { state, dispatch } = useContext(GlobalContext);
-  console.log(state.favouriteBooks)
 
-  const handleRemoveFav = (id: string) => {
+  const handleRemoveFav = (key: string) => {
     dispatch({
       type: "REMOVEFAVBOOK",
-      payload: id,
+      payload: key,
     });
   };
   return (
@@ -16,7 +15,8 @@ const FavouriteBooks = () => {
       FavouriteBooks
       {state.favouriteBooks.map((book, index) => (
         <section key={index}>
-          <p>{book.title}</p>          
+          <p>{book.title}</p>  
+          <p>{book.author_name}</p>        
           <button onClick={() => handleRemoveFav(book.key)}>delete</button>
         </section>
       ))}

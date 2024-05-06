@@ -1,3 +1,4 @@
+
 import { Action, InitialStateTypes } from "../types/Types";
 
 export const reducer = (state: InitialStateTypes, action: Action) => {
@@ -5,7 +6,7 @@ export const reducer = (state: InitialStateTypes, action: Action) => {
     case "ADDFAVBOOK":
       return {
         ...state,
-        favouriteBooks: [...state.favouriteBooks, action.payload],
+        favouriteBooks: [...state.favouriteBooks, action.payload]
       };
     case "REMOVEFAVBOOK":
       return {
@@ -14,6 +15,16 @@ export const reducer = (state: InitialStateTypes, action: Action) => {
           (fav) => fav.key !== action.payload
         ),
       };
+      case "ADDFAVAUTHOR":
+        return {
+            ...state,
+            favouriteAuthors: [...state.favouriteAuthors, action.payload]
+        }
+        case "REMOVE_FAV_AUTHOR":
+            return {
+                ...state,
+                favouriteAuthors: state.favouriteAuthors.filter((fav) => fav.key !== action.payload)
+            }
     default:
       return state;
   }

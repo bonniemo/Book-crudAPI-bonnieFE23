@@ -12,10 +12,24 @@ export type DisplayBookProps = {
   };
 };
 
+export type Author = {
+  key: string;
+  name: string;
+  birth_date: string;
+  top_work: string;
+  top_subjects: string[];
+};
+
+export type DisplayAuthorProps = {
+  data: {
+    docs: Author[];
+  };
+};
+
 export type InitialStateTypes = {
   favouriteBooks: Book[];
   readBooks: Book[];
-  favouriteAuthors: string[];
+  favouriteAuthors: Author[];
 };
 
 export type GlobalContextProviderProp = {
@@ -24,4 +38,6 @@ export type GlobalContextProviderProp = {
 
 export type Action =
   | { type: "ADDFAVBOOK"; payload: Book }
-  | { type: "REMOVEFAVBOOK"; payload: string };
+  | { type: "REMOVEFAVBOOK"; payload: string }
+  | { type: "ADDFAVAUTHOR"; payload: Author }
+  | { type: "REMOVE_FAV_AUTHOR"; payload: string }
