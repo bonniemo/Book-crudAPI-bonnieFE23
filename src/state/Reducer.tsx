@@ -25,6 +25,16 @@ export const reducer = (state: InitialStateTypes, action: Action) => {
                 ...state,
                 favouriteAuthors: state.favouriteAuthors.filter((fav) => fav.key !== action.payload)
             }
+        case "ADD_READ_BOOK":
+          return {
+            ...state,
+            readBooks: [...state.readBooks, action.payload]
+          }
+        case "REMOVE_READ_BOOK":
+          return {
+            ...state,
+            readBooks: state.readBooks.filter((read) => read.dataKey !== action.payload)
+          }
     default:
       return state;
   }
