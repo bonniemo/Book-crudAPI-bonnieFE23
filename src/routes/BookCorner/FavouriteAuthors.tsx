@@ -1,5 +1,7 @@
 import { useContext } from "react";
 import { GlobalContext } from "../../state/GlobalStateContext";
+import DisplayDataCard from "../../components/DisplayDataCard";
+import DisplayDataCardContainer from "../../components/DisplayDataCardContainer";
 
 
 const FavouriteAuthors = () => {
@@ -13,14 +15,16 @@ const FavouriteAuthors = () => {
   }
 
   return (
-    <>
+    <DisplayDataCardContainer>
       {state.favouriteAuthors.map((author, index) => (
-        <section key={index}>
+        <DisplayDataCard key={index}>
           {author.name}
+          <p>Born: {author.birth_date}</p>
+          <p>Top work: {author.top_work}</p>
           <button onClick={() => handleRemoveFav(author.key)}>Delete</button>
-        </section>
+        </DisplayDataCard>
       ))}
-    </>
+    </DisplayDataCardContainer>
   )
 }
 

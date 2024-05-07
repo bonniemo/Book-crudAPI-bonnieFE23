@@ -3,7 +3,7 @@ import { ChildrenProp } from "../types/Types"
 
 const DisplayDataCard = ({ children }: ChildrenProp) => {
   return (
-    <article className=" p-1 m-3 bg-slate-500">
+    <article className=" p-3 rounded-lg m-3 bg-indigo-300 flex-1">
         {children}
     </article>
   )

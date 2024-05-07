@@ -1,12 +1,12 @@
 import { useContext } from "react";
 import { DisplayBookProps, Book } from "../../types/Types";
 import { GlobalContext } from "../../state/GlobalStateContext";
+import DisplayDataCard from "../../components/DisplayDataCard";
+import DisplayDataCardContainer from "../../components/DisplayDataCardContainer";
 
 const DisplayBooks: React.FC<DisplayBookProps> = ({ data }) => {
   const docs = data.docs;
   const { dispatch } = useContext(GlobalContext);
-
-  console.log(data);
 
   const handleClick = (
     key: string,
@@ -28,14 +28,14 @@ const DisplayBooks: React.FC<DisplayBookProps> = ({ data }) => {
   };
 
   return (
-    <>
-      {docs.map(( book: Book ) => (
-        <article key={book.key}>
+    <DisplayDataCardContainer>
+      {docs.map((book: Book) => (
+        <DisplayDataCard key={book.key}>
           <img
             src={`https://covers.openlibrary.org/b/id/${book.cover_i}-M.jpg`}
             alt=""
           />
-          
+
           <p>{book.title}</p>
           <p>{book.author_name}</p>
           <p>{book.first_publish_year}</p>
@@ -52,9 +52,9 @@ const DisplayBooks: React.FC<DisplayBookProps> = ({ data }) => {
           >
             Add Favourite
           </button>
-        </article>
+        </DisplayDataCard>
       ))}
-    </>
+    </DisplayDataCardContainer>
   );
 };
 

@@ -2,8 +2,8 @@ import { NavLink, Outlet } from "react-router-dom"
 
 const BookCorner = () => {
   return (
-    <>
-        <nav>
+    <article className="grid grid-cols-[1fr 3fr] gap-3.5">
+        <nav className="">
             <ul>
                 <li><NavLink to="/BookCorner/FavouriteBooks">My Favourite Books</NavLink></li>
                 <li><NavLink to="/BookCorner/FavouriteAuthors">My Favourite Authors</NavLink></li>
@@ -11,7 +11,7 @@ const BookCorner = () => {
             </ul>
         </nav>
         <Outlet/>
-    </>
+    </article>
   )
 }
 

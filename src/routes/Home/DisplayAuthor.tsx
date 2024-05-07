@@ -2,6 +2,7 @@ import { useContext } from "react";
 import { GlobalContext } from "../../state/GlobalStateContext";
 import { DisplayAuthorProps } from "../../types/Types";
 import DisplayDataCard from "../../components/DisplayDataCard";
+import DisplayDataCardContainer from "../../components/DisplayDataCardContainer";
 
 const DisplayAuthor: React.FC<DisplayAuthorProps> = ({ data }) => {
   const docs = data.docs;
@@ -26,10 +27,9 @@ const DisplayAuthor: React.FC<DisplayAuthorProps> = ({ data }) => {
     });
   };
   return (
-    <>
+    <DisplayDataCardContainer>
       {docs.map((author) => (
-    <DisplayDataCard key={author.key}>
-        
+        <DisplayDataCard key={author.key}>
           <p>{author.name}</p>
           <p>Born: {author.birth_date}</p>
           <p>Top work: {author.top_work}</p>
@@ -51,10 +51,10 @@ const DisplayAuthor: React.FC<DisplayAuthorProps> = ({ data }) => {
             }
           >
             Add Fav
-          </button>        
-    </DisplayDataCard>
+          </button>
+        </DisplayDataCard>
       ))}
-    </>
+    </DisplayDataCardContainer>
   );
 };
 
