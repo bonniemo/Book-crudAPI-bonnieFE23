@@ -14,5 +14,4 @@ const BookCorner = () => {
     </article>
   )
 }
-
 export default BookCorner

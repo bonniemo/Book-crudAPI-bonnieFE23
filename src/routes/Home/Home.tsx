@@ -49,11 +49,7 @@ const Home = () => {
         url={searchUrl}
       /> 
       )
-    }
-      {/* <FetchData
-        componentProp={toggle ? DisplayBooks : DisplayAuthor}
-        url={searchUrl}
-      /> */}
+    }      
     </article>
   );
 };

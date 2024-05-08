@@ -1,13 +1,7 @@
 import { useContext } from "react";
 import { GlobalContext } from "../../state/GlobalStateContext";
 import { useFormInput } from "../../hooks/useFormInput";
-
-type ReadBookProps = {
-  dataKey: string;
-  title: string;
-  author_name: string[];
-  cover_i: string;
-};
+import { ReadBookProps } from "../../types/Types";
 
 const ReadBookForm = ({
   dataKey,
@@ -44,7 +38,6 @@ const ReadBookForm = ({
           src={`https://covers.openlibrary.org/b/id/${cover_i}-M.jpg`}
           alt=""
         />
-
         <p>{title} by {author_name}</p>
         <form className="flex flex-col" onSubmit={handleSubmitRead}>
           <>
@@ -65,5 +58,4 @@ const ReadBookForm = ({
     </>
   );
 };
-
 export default ReadBookForm;
