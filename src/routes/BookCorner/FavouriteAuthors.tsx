@@ -4,7 +4,6 @@ import DisplayDataCard from "../../components/DisplayDataCard";
 import DisplayDataCardContainer from "../../components/DisplayDataCardContainer";
 import AuthorDetails from "../../components/AuthorDetails";
 
-
 const FavouriteAuthors = () => {
   const { state, dispatch } = useContext(GlobalContext);
 
@@ -12,19 +11,18 @@ const FavouriteAuthors = () => {
     dispatch({
       type: "REMOVE_FAV_AUTHOR",
       payload: key,
-    })
-  }
-
+    });
+  };
   return (
     <DisplayDataCardContainer>
       {state.favouriteAuthors.map((author, index) => (
         <DisplayDataCard key={index}>
-          <AuthorDetails {...author}/>
+          <AuthorDetails {...author} />
           <button onClick={() => handleRemoveFav(author.key)}>Delete</button>
         </DisplayDataCard>
       ))}
     </DisplayDataCardContainer>
-  )
-}
+  );
+};
 
-export default FavouriteAuthors
+export default FavouriteAuthors;

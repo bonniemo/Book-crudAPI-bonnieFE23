@@ -14,10 +14,10 @@ const FavouriteBooks = () => {
     });
   };
   return (
-    <DisplayDataCardContainer>      
+    <DisplayDataCardContainer>
       {state.favouriteBooks.map((book, index) => (
         <DisplayDataCard key={index}>
-          <BookDetails {...book}/>
+          <BookDetails {...book} />
           <button onClick={() => handleRemoveFav(book.key)}>delete</button>
         </DisplayDataCard>
       ))}

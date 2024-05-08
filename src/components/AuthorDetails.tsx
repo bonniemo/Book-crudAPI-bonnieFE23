@@ -1,6 +1,5 @@
 import { Author } from "../types/Types"
 
-
 const AuthorDetails = ( author: Author ) => {
   return (
     <>
@@ -21,5 +20,4 @@ const AuthorDetails = ( author: Author ) => {
     </>
   )
 }
-
 export default AuthorDetails

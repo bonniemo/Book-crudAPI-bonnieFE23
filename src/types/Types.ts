@@ -32,6 +32,13 @@ export type InitialStateTypes = {
   favouriteAuthors: Author[];
 };
 
+export type ReadBookProps = {
+  dataKey: string;
+  title: string;
+  author_name: string[];
+  cover_i: string;
+};
+
 export type ChildrenProp = {
   children: React.ReactNode;
 };

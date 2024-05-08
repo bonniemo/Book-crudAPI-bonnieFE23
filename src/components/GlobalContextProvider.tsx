@@ -3,8 +3,6 @@ import { GlobalContext, InitialState,  } from "../state/GlobalStateContext"
 import { reducer } from "../state/Reducer"
 import { ChildrenProp } from "../types/Types"
 
-
-
 const GlobalContextProvider = ({ children }: ChildrenProp) => {
     const [state, dispatch] = useReducer(reducer, InitialState)
   return (
@@ -15,5 +13,4 @@ const GlobalContextProvider = ({ children }: ChildrenProp) => {
     </>
   )
 }
-
 export default GlobalContextProvider
