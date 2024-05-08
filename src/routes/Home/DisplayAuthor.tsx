@@ -27,7 +27,8 @@ const DisplayAuthor: React.FC<DisplayAuthorProps> = ({ data }) => {
     });
   };
   return (
-    <DisplayDataCardContainer>
+    
+    <DisplayDataCardContainer>      
       {docs.map((author) => (
         <DisplayDataCard key={author.key}>
           <p>{author.name}</p>
