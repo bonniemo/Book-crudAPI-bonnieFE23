@@ -1,6 +1,7 @@
 import { useContext } from "react";
 import { GlobalContext } from "../../state/GlobalStateContext";
 import DisplayDataCard from "../../components/DisplayDataCard";
+import DisplayDataCardContainer from "../../components/DisplayDataCardContainer";
 
 const ReadBooks = () => {
   const { state, dispatch } = useContext(GlobalContext);
@@ -12,7 +13,7 @@ const ReadBooks = () => {
   }
 
   return (
-    <>
+    <DisplayDataCardContainer>
     {state.readBooks.map((book, index) => (
       <DisplayDataCard key={index}>
         <img
@@ -28,7 +29,7 @@ const ReadBooks = () => {
             <button onClick={() => handleDelete(book.dataKey)}>Delete</button>
       </DisplayDataCard>
     ))}
-    </>
+    </DisplayDataCardContainer>
   )
 }
 

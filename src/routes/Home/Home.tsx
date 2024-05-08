@@ -4,6 +4,7 @@ import FetchData from "../../components/FetchData";
 import { useFormInput } from "../../hooks/useFormInput";
 import { useSearch } from "../../hooks/useSearch";
 import { useToggle } from "../../hooks/useToggle";
+import { Author, Book } from "../../types/Types";
 
 const Home = () => {
   const { toggle, toggleState } = useToggle();
@@ -37,10 +38,22 @@ const Home = () => {
           Search
         </button>
       </>
-      <FetchData
+      {toggle ? (
+        <FetchData<Book>
+        componentProp={ DisplayBooks }
+        url={searchUrl}
+      />      
+      ) : (
+        <FetchData<Author>
+        componentProp={ DisplayAuthor }
+        url={searchUrl}
+      /> 
+      )
+    }
+      {/* <FetchData
         componentProp={toggle ? DisplayBooks : DisplayAuthor}
         url={searchUrl}
-      />
+      /> */}
     </article>
   );
 };

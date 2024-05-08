@@ -17,7 +17,7 @@ export type Author = {
   name: string;
   birth_date: string;
   top_work: string;
-  top_subjects: string[];
+  top_subjects: string[];  
 };
 
 export type DisplayAuthorProps = {

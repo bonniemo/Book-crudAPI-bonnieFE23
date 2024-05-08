@@ -9,14 +9,19 @@ type ReadBookProps = {
   cover_i: string;
 };
 
-const ReadBookForm = ({ dataKey, title, author_name, cover_i }: ReadBookProps) => {
+const ReadBookForm = ({
+  dataKey,
+  title,
+  author_name,
+  cover_i,
+}: ReadBookProps) => {
   const { dispatch } = useContext(GlobalContext);
 
   const userRating = useFormInput("");
   const userReview = useFormInput("");
   const userNumPages = useFormInput("");
 
-  const handleSubmitRead = (e:any) => {
+  const handleSubmitRead = (e: any) => {
     e.preventDefault();
     dispatch({
       type: "ADD_READ_BOOK",
@@ -33,21 +38,28 @@ const ReadBookForm = ({ dataKey, title, author_name, cover_i }: ReadBookProps) =
   };
   return (
     <>
-      <article>
-        <form onSubmit={handleSubmitRead}>
-            <>
-                <label htmlFor="userRating ">Rating</label>
-                <input type="text" {...userRating} id="userRating"/>
-            </>
-            <>
-                <label htmlFor="userReview">Your Review</label>
-                <input type="text" {...userReview} id="userReview"/>
-            </>
-            <>
-                <label htmlFor="userNumPages">Number of pages</label>
-                <input type="tex" {...userNumPages} id="userNumPages"/>
-            </>
-            <button type="submit">Add to my read Books</button>
+      <article className=" w-fit">
+        <h2>Add to my Reading History</h2>
+        <img
+          src={`https://covers.openlibrary.org/b/id/${cover_i}-M.jpg`}
+          alt=""
+        />
+
+        <p>{title} by {author_name}</p>
+        <form className="flex flex-col" onSubmit={handleSubmitRead}>
+          <>
+            <label htmlFor="userRating ">Rating</label>
+            <input type="text" {...userRating} id="userRating" />
+          </>
+          <>
+            <label htmlFor="userReview">Your Review</label>
+            <input type="text" {...userReview} id="userReview" />
+          </>
+          <>
+            <label htmlFor="userNumPages">Number of pages</label>
+            <input type="tex" {...userNumPages} id="userNumPages" />
+          </>
+          <button type="submit">Add to my read Books</button>
         </form>
       </article>
     </>

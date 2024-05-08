@@ -26,12 +26,17 @@ const DisplayAuthor: React.FC<DisplayAuthorProps> = ({ data }) => {
       },
     });
   };
-  return (
-    
+  return (    
     <DisplayDataCardContainer>      
       {docs.map((author) => (
-        <DisplayDataCard key={author.key}>
+        <DisplayDataCard key={author.key}>          
+           <img
+          src={`https://covers.openlibrary.org/a/olid/${author.key}-L.jpg`}
+          alt="Author Photo"
+          className="h-50 w-full object-cover rounded mb-4"
+        />
           <p>{author.name}</p>
+          <p>{author.key}</p>
           <p>Born: {author.birth_date}</p>
           <p>Top work: {author.top_work}</p>
           {/* <ul>

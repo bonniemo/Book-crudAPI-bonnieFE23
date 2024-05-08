@@ -18,6 +18,10 @@ const FavouriteAuthors = () => {
     <DisplayDataCardContainer>
       {state.favouriteAuthors.map((author, index) => (
         <DisplayDataCard key={index}>
+          <img
+          src={`https://covers.openlibrary.org/a/olid/${author.key}-L.jpg`}
+          alt="Author Photo"         
+        />
           {author.name}
           <p>Born: {author.birth_date}</p>
           <p>Top work: {author.top_work}</p>
