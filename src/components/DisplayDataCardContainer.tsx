@@ -3,7 +3,7 @@ import { ChildrenProp } from "../types/Types"
 
 const DisplayDataCardContainer = ({ children }: ChildrenProp) => {
   return (
-    <article className="flex">
+    <article className="flex m-10">
         {children}
     </article>
   )

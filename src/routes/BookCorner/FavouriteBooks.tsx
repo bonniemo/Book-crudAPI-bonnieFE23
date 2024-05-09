@@ -6,7 +6,6 @@ import BookDetails from "../../components/BookDetails";
 
 const FavouriteBooks = () => {
   const { state, dispatch } = useContext(GlobalContext);
-
   const handleRemoveFav = (key: string) => {
     dispatch({
       type: "REMOVEFAVBOOK",

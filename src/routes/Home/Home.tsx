@@ -53,5 +53,4 @@ const Home = () => {
     </article>
   );
 };
-
 export default Home;

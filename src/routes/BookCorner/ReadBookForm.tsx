@@ -10,7 +10,6 @@ const ReadBookForm = ({
   cover_i,
 }: ReadBookProps) => {
   const { dispatch } = useContext(GlobalContext);
-
   const userRating = useFormInput("");
   const userReview = useFormInput("");
   const userNumPages = useFormInput("");

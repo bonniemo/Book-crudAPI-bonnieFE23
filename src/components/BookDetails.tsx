@@ -7,7 +7,7 @@ const BookDetails = ( book:Book ) => {
               src={`https://covers.openlibrary.org/b/id/${book.cover_i}-M.jpg`}
               alt=""
             />
-            <p>{book.title}</p>
+            <p className=" mt-3">{book.title}</p>
             <p>{book.author_name}</p>
             <p>{book.first_publish_year}</p>   
     </>

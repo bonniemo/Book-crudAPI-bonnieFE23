@@ -11,7 +11,6 @@ const ReadBooks = () => {
       payload: key,
     })
   }
-
   return (
     <DisplayDataCardContainer>
     {state.readBooks.map((book, index) => (
@@ -31,5 +30,4 @@ const ReadBooks = () => {
     </DisplayDataCardContainer>
   )
 }
-
 export default ReadBooks
