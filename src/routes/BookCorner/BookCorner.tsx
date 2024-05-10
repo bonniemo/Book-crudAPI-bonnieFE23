@@ -10,7 +10,7 @@ const BookCorner = () => {
             <ul className="flex flex-col gap-3 mt-5">
                 <li className="mb-5"><NavLink className="" to="/BookCorner/FavouriteBooks"><img src={fav} className="mx-2"/>My Favourite Books</NavLink></li>
                 <li className="mb-5"><NavLink className="" to="/BookCorner/FavouriteAuthors"><img src={author} className="mx-2"/>My Favourite Authors</NavLink></li>
-                <li><NavLink className="" to="/BookCorner/ReadBooks"><img src={readingHistory} className="mx-2"/>My Reading History</NavLink></li>
+                <li className="mb-5"><NavLink className="" to="/BookCorner/ReadBooks"><img src={readingHistory} className="mx-2"/>My Reading History</NavLink></li>
             </ul>
         </nav>
         <Outlet/>
