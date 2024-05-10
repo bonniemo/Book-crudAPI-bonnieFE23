@@ -3,7 +3,7 @@ import { DisplayBookProps, Book } from "../../types/Types";
 import { GlobalContext } from "../../state/GlobalStateContext";
 import DisplayDataCard from "../../components/DisplayDataCard";
 import DisplayDataCardContainer from "../../components/DisplayDataCardContainer";
-import ReadBookForm from "../BookCorner/ReadBookForm";
+import ReadBookForm from "./ReadBookForm";
 import BookDetails from "../../components/BookDetails";
 
 const DisplayBooks: React.FC<DisplayBookProps> = ({ data }) => {
@@ -15,12 +15,17 @@ const DisplayBooks: React.FC<DisplayBookProps> = ({ data }) => {
     dispatch({
       type: "ADDFAVBOOK",
       payload: {
-        ...book,
+        key: book.key,
+        title: book.title,
+        author_name: book.author_name,
+        cover_i: book.cover_i,
+        first_publish_year: book.first_publish_year
       },
     });
   };
   const handleAddRead = (book: Book) => {
-    setSelectedBook({ ...book });
+    const { key, title, author_name, cover_i, first_publish_year } = book;
+    setSelectedBook({ key, title, author_name, cover_i, first_publish_year });
     setReadFormVisibility(true);
   };
   return (
@@ -29,7 +34,7 @@ const DisplayBooks: React.FC<DisplayBookProps> = ({ data }) => {
         {docs.map((book: Book) => (
           <DisplayDataCard key={book.key}>
             <BookDetails {...book}/>
-            <button onClick={() => handleClick(book)}>Add Favourite</button>
+            <button onClick={() => handleClick({ key: book.key, title: book.title, author_name: book.author_name, cover_i: book.cover_i, first_publish_year: book.first_publish_year })}>Add Favourite</button>
             <button onClick={() => handleAddRead(book)}>Mark as Read</button>
           </DisplayDataCard>
         ))}

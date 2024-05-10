@@ -12,7 +12,7 @@ const FavouriteAuthors = () => {
       type: "REMOVE_FAV_AUTHOR",
       payload: key,
     });
-  };
+  };  
   return (
     <DisplayDataCardContainer>
       {state.favouriteAuthors.map((author, index) => (

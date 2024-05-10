@@ -12,6 +12,7 @@ const FavouriteBooks = () => {
       payload: key,
     });
   };
+  console.log(state.favouriteBooks)
   return (
     <DisplayDataCardContainer>
       {state.favouriteBooks.map((book, index) => (

@@ -9,11 +9,21 @@ const DisplayAuthor: React.FC<DisplayAuthorProps> = ({ data }) => {
   const docs = data.docs;
   const { dispatch } = useContext(GlobalContext);
 
-  const handleAddFavAuthor = (author: Author) => {
+  const handleAddFavAuthor = ({
+    key,
+    name,
+    birth_date,
+    top_work,
+    top_subjects,
+  }: Author) => {
     dispatch({
       type: "ADDFAVAUTHOR",
       payload: {
-        ...author,
+        key: key,
+        name: name,
+        birth_date: birth_date,
+        top_work: top_work,
+        top_subjects: top_subjects,
       },
     });
   };
@@ -21,8 +31,26 @@ const DisplayAuthor: React.FC<DisplayAuthorProps> = ({ data }) => {
     <DisplayDataCardContainer>
       {docs.map((author) => (
         <DisplayDataCard key={author.key}>
-          <AuthorDetails {...author} />
-          <button onClick={() => handleAddFavAuthor(author)}>Add Fav</button>
+          <AuthorDetails
+            key={author.key}
+            name={author.name}
+            birth_date={author.birth_date}
+            top_work={author.top_work}
+            top_subjects={author.top_subjects}
+          />
+          <button
+            onClick={() =>
+              handleAddFavAuthor({
+                key: author.key,
+                name: author.name,
+                birth_date: author.birth_date,
+                top_work: author.top_work,
+                top_subjects: author.top_subjects,
+              })
+            }
+          >
+            Add Fav
+          </button>
         </DisplayDataCard>
       ))}
     </DisplayDataCardContainer>
