@@ -19,7 +19,8 @@ const FetchData = <T,>({
   if (error) {
     return <p>Error: {error}</p>;
   }
-
-  return <>{data && <Component data={data} />}</>;
+  if (data && data.docs.length > 0) {
+    return <Component data={data} />;
+  }
 };
 export default FetchData;
